@@ -4,6 +4,7 @@ namespace Infoexam\Snappy;
 
 use Barryvdh\Snappy\Facades\SnappyImage;
 use Barryvdh\Snappy\Facades\SnappyPdf;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class SnappyServiceProvider extends ServiceProvider
@@ -50,7 +51,9 @@ class SnappyServiceProvider extends ServiceProvider
     {
         $this->app->register(\Barryvdh\Snappy\ServiceProvider::class);
 
-        $this->app->alias('SnappyPdf', SnappyPdf::class);
-        $this->app->alias('SnappyImage', SnappyImage::class);
+        $loader = AliasLoader::getInstance();
+
+        $loader->alias('SnappyPdf', SnappyPdf::class);
+        $loader->alias('SnappyImage', SnappyImage::class);
     }
 }

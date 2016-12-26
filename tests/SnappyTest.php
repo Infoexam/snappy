@@ -19,9 +19,6 @@ class SnappyTest extends Orchestra\Testbench\TestCase
     public function test_service_provider_loaded()
     {
         $this->assertArrayHasKey(Barryvdh\Snappy\ServiceProvider::class, $this->app->getLoadedProviders());
-
-        $this->assertSame('SnappyImage', $this->app->getAlias(Barryvdh\Snappy\Facades\SnappyImage::class));
-        $this->assertSame('SnappyPdf', $this->app->getAlias(Barryvdh\Snappy\Facades\SnappyPdf::class));
     }
 
     /**
