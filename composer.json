@@ -17,11 +17,11 @@
     "h4cc/wkhtmltoimage-i386": "^0.12",
     "h4cc/wkhtmltopdf-amd64": "^0.12",
     "h4cc/wkhtmltopdf-i386": "^0.12",
-    "illuminate/support": "^5.3"
+    "illuminate/support": "5.3.*"
   },
   "require-dev": {
     "codeclimate/php-test-reporter": "^0.3",
-    "orchestra/testbench": "^3.3",
+    "orchestra/testbench": "3.3.*",
     "phpunit/phpunit": "^5.7"
   },
   "autoload": {
