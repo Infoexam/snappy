@@ -1,7 +1,7 @@
 {
   "name": "infoexam/snappy",
   "description": "CCU Infoexam snappy package.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "library",
   "homepage": "https://github.com/infoexam/snappy",
   "license": "MIT",
