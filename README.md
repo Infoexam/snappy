@@ -1,3 +1,9 @@
 # Infoexam Snappy
 
-[![StyleCI](https://styleci.io/repos/77363985/shield)](https://styleci.io/repos/77363985)
+[![Actions Status](https://github.com/infoexam/snappy/workflows/PHPUnit/badge.svg)](https://github.com/infoexam/snappy/actions)
+
+CCU Infoexam Snappy Package
+
+## Version
+
+1.0.0
