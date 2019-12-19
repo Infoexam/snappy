@@ -1,15 +1,19 @@
 <?php
 
-class SnappyTest extends Orchestra\Testbench\TestCase
+use Barryvdh\Snappy\ServiceProvider;
+use Illuminate\Foundation\Application;
+use Orchestra\Testbench\TestCase;
+
+class SnappyTest extends TestCase
 {
     /**
      * Get package providers.
      *
-     * @param \Illuminate\Foundation\Application $app
+     * @param Application $app
      *
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             Infoexam\Snappy\SnappyServiceProvider::class,
@@ -18,7 +22,10 @@ class SnappyTest extends Orchestra\Testbench\TestCase
 
     public function test_service_provider_loaded()
     {
-        $this->assertArrayHasKey(Barryvdh\Snappy\ServiceProvider::class, $this->app->getLoadedProviders());
+        $this->assertArrayHasKey(
+            ServiceProvider::class,
+            $this->app->getLoadedProviders()
+        );
     }
 
     /**
@@ -28,12 +35,28 @@ class SnappyTest extends Orchestra\Testbench\TestCase
     {
         $config = $this->app['config']['snappy'];
 
-        if (PHP_INT_SIZE === 4) {
-            $this->assertSame(base_path('vendor/h4cc/wkhtmltopdf-i386/bin/wkhtmltopdf-i386'), $config['pdf']['binary']);
-            $this->assertSame(base_path('vendor/h4cc/wkhtmltoimage-i386/bin/wkhtmltoimage-i386'), $config['image']['binary']);
-        } else {
-            $this->assertSame(base_path('vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64'), $config['pdf']['binary']);
-            $this->assertSame(base_path('vendor/h4cc/wkhtmltoimage-amd64/bin/wkhtmltoimage-amd64'), $config['image']['binary']);
-        }
+        $type = PHP_INT_SIZE === 4 ? 'i386' : 'amd64';
+
+        $this->assertSame(
+            base_path(
+                sprintf(
+                    'vendor/h4cc/wkhtmltopdf-%s/bin/wkhtmltopdf-%s',
+                    $type,
+                    $type
+                )
+            ),
+            $config['pdf']['binary']
+        );
+
+        $this->assertSame(
+            base_path(
+                sprintf(
+                    'vendor/h4cc/wkhtmltoimage-%s/bin/wkhtmltoimage-%s',
+                    $type,
+                    $type
+                )
+            ),
+            $config['image']['binary']
+        );
     }
 }

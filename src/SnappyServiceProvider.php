@@ -4,6 +4,7 @@ namespace Infoexam\Snappy;
 
 use Barryvdh\Snappy\Facades\SnappyImage;
 use Barryvdh\Snappy\Facades\SnappyPdf;
+use Barryvdh\Snappy\ServiceProvider as BaseServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,16 +16,6 @@ class SnappyServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        $this->overrideConfig();
-    }
-
-    /**
-     * Override laravel snappy config.
-     *
-     * @return void
-     */
-    protected function overrideConfig()
     {
         if (PHP_OS !== 'Linux') {
             return;
@@ -49,11 +40,12 @@ class SnappyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(\Barryvdh\Snappy\ServiceProvider::class);
+        $this->app->register(BaseServiceProvider::class);
 
         $loader = AliasLoader::getInstance();
 
         $loader->alias('SnappyPdf', SnappyPdf::class);
+
         $loader->alias('SnappyImage', SnappyImage::class);
     }
 }
