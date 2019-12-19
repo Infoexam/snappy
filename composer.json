@@ -1,28 +1,28 @@
 {
   "name": "infoexam/snappy",
-  "description": "Infoexam snappy.",
+  "description": "CCU Infoexam snappy package.",
+  "version": "1.0.0",
   "type": "library",
-  "homepage": "https://github.com/Infoexam/snappy",
+  "homepage": "https://github.com/infoexam/snappy",
   "license": "MIT",
   "authors": [
     {
-      "name": "BePsvPT",
-      "email": "freedom@csie.io"
+      "name": "bepsvpt",
+      "email": "og7lsrszah6y3lz@infinitefa.email"
     }
   ],
   "require": {
-    "php": "^7.0",
-    "barryvdh/laravel-snappy": "^0.3",
+    "php": "^7.4",
+    "barryvdh/laravel-snappy": "^0.4",
     "h4cc/wkhtmltoimage-amd64": "^0.12",
     "h4cc/wkhtmltoimage-i386": "^0.12",
     "h4cc/wkhtmltopdf-amd64": "^0.12",
     "h4cc/wkhtmltopdf-i386": "^0.12",
-    "illuminate/support": "5.3.*"
+    "illuminate/support": "^6.8"
   },
   "require-dev": {
-    "codeclimate/php-test-reporter": "^0.3",
-    "orchestra/testbench": "3.3.*",
-    "phpunit/phpunit": "^5.7"
+    "orchestra/testbench": "^4.4",
+    "phpunit/phpunit": "^8.5"
   },
   "autoload": {
     "psr-4": {
@@ -35,8 +35,8 @@
     ]
   },
   "config": {
+    "notify-on-install": false,
     "optimize-autoloader": true,
-    "sort-packages": true,
-    "notify-on-install": false
+    "sort-packages": true
   }
 }
